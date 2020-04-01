@@ -1,13 +1,13 @@
 import React from "react";
 import "./App.css";
 import LogicProblems from "./components/LogicProblems";
-import Users from "./components/Users";
+import User from "./components/User";
 
 function App() {
   return (
     <div className="App">
       <LogicProblems />
-      <Users />
+      <User />
     </div>
   );
 }

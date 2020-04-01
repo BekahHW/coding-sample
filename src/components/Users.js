@@ -16,34 +16,34 @@ const Users = () => {
   }, []);
   return (
     <div>
-      <span>Has error: {JSON.stringify(hasError)}</span>
-      {data ? (
-        <FormControl
-          variant="filled"
-          style={{
-            minWidth: 200,
-            color: "white",
-            margin: 10
-          }}
+      {hasError && <span>Has error: {JSON.stringify(hasError)}</span>}
+
+      <FormControl
+        variant="filled"
+        style={{
+          minWidth: 200,
+          color: "black",
+          margin: 10
+        }}
+      >
+        <Grid
+          container
+          spacing={2}
+          style={{ padding: 20 }}
+          direction="row"
+          justify="center"
+          alignItems="center"
         >
-          <Grid
-            container
-            spacing={2}
-            style={{ padding: 20 }}
-            direction="row"
-            justify="center"
-            alignItems="center"
-          >
-            {data.map(user => (
-              <Grid item xs={12} sm={6} lg={4} xl={3}>
-                <User user={user} />
-              </Grid>
-            ))}
-          </Grid>
-        </FormControl>
-      ) : (
+          {data.map(user => (
+            <Grid item xs={12} sm={6} lg={4} xl={3}>
+              <User user={user} />
+            </Grid>
+          ))}
+        </Grid>
+      </FormControl>
+      {/* ) : (
         <Typography color="inherit">No Users were found</Typography>
-      )}
+      )} */}
     </div>
   );
 };
