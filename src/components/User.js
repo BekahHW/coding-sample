@@ -39,6 +39,7 @@ const User = () => {
                     margin: 20
                   }}
                   src={user.picture.large}
+                  alt={`${user.name.first} ${user.name.last}`}
                 />
                 <Divider medium />
 
