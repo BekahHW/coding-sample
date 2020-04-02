@@ -33,6 +33,11 @@ const LogicProblems = () => {
             and a single character. Find and count all instances of the single
             character and return the number found.
           </Typography>
+          <Typography>
+            <a href="https://repl.it/@BekahHW/chameleon-coding-challenge">
+              Repl.it link
+            </a>
+          </Typography>
         </CardContent>
       </Card>
       <Card>
