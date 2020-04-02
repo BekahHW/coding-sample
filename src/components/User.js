@@ -22,43 +22,51 @@ const User = () => {
         <>
           <div>User</div>
           {data.map(user => (
-            <Grid container alignItems="center" xs={12} sm={6} lg={4} xl={3}>
-              <Card
-                style={{
-                  justifyContent: "center",
-                  margin: "auto",
-                  boxShadow: "0 8px 40px -12px rgba(0,0,0,0.3)"
-                }}
-              >
-                <img
+            <Grid
+              container
+              direction="row"
+              justify="center"
+              alignItems="center"
+              key={`${user.name.first} ${user.name.last}`}
+            >
+              <Grid item xs={12} sm={6} lg={4} xl={3}>
+                <Card
                   style={{
-                    width: 200,
-                    height: 200,
-                    borderRadius: "50%",
-
-                    margin: 20
+                    justifyContent: "center",
+                    margin: "auto",
+                    boxShadow: "0 8px 40px -12px rgba(0,0,0,0.3)"
                   }}
-                  src={user.picture.large}
-                  alt={`${user.name.first} ${user.name.last}`}
-                />
-                <Divider medium />
+                >
+                  <img
+                    style={{
+                      width: 200,
+                      height: 200,
+                      borderRadius: "50%",
 
-                <CardContent>
-                  <Typography variant="h4" component="h4">
-                    {console.log(user)}
-                    {`${user.name.first} 
+                      margin: 20
+                    }}
+                    src={user.picture.large}
+                    alt={`${user.name.first} ${user.name.last}`}
+                  />
+                  <Divider />
+
+                  <CardContent>
+                    <Typography variant="h4" component="h4">
+                      {console.log(user)}
+                      {`${user.name.first} 
                     ${user.name.last}`}
-                  </Typography>
-                  <Typography component="h5" variant="h5">
-                    {user.email}
-                  </Typography>
+                    </Typography>
+                    <Typography component="h5" variant="h5">
+                      {user.email}
+                    </Typography>
 
-                  <Typography variant="p" component="p">
-                    {user.dob.age} y.o. • {user.location.city},{" "}
-                    {user.location.state}
-                  </Typography>
-                </CardContent>
-              </Card>
+                    <Typography variant="h6" component="p">
+                      {user.dob.age} y.o. • {user.location.city},{" "}
+                      {user.location.state}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
             </Grid>
           ))}
         </>
