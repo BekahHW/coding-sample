@@ -28,15 +28,18 @@ const User = () => {
         <>
           <div>User</div>
           {data.map(user => (
-            <Grid item xs={12} sm={6} lg={4} xl={3}>
+            <Grid container justify="center" item xs={12} sm={6} lg={4} xl={3}>
               <Card>
                 <CardMedia
                   style={{
                     width: 200,
                     height: 200,
-                    borderRadius: 200 / 2
+                    // borderRadius: 200 / 2,
+                    borderRadius: "50%",
+                    align: "center"
+                    // margin: 20
                   }}
-                  image={user.picture.medium}
+                  image={user.picture.thumbnail}
                 />
                 <CardContent>
                   <Typography variant="h4" component="h4">
