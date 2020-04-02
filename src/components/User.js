@@ -9,6 +9,7 @@ const User = () => {
   const [data, setData] = useState([]);
   const [hasError, setErrors] = useState(false);
 
+  // get data for one user
   useEffect(() => {
     fetch("https://randomuser.me/api/")
       .then(res => res.json())
@@ -24,6 +25,7 @@ const User = () => {
             Front End Dev
           </Typography>{" "}
           {data.map(user => (
+            // use grid for responsive layout
             <Grid
               container
               direction="row"
@@ -39,6 +41,7 @@ const User = () => {
                     boxShadow: "0 8px 40px -12px rgba(0,0,0,0.3)"
                   }}
                 >
+                  {/* Use circle image */}
                   <img
                     style={{
                       width: 200,
@@ -51,10 +54,9 @@ const User = () => {
                     alt={`${user.name.first} ${user.name.last}`}
                   />
                   <Divider />
-
+                  {/* Add basic info, pulling from data */}
                   <CardContent>
                     <Typography variant="h4" component="h4">
-                      {console.log(user)}
                       {`${user.name.first} 
                     ${user.name.last}`}
                     </Typography>
@@ -73,6 +75,7 @@ const User = () => {
           ))}
         </>
       ) : (
+        // if no data is available, let users know there is nothing to display
         <Typography component="h5" variant="h5">
           "There are no users to display"
         </Typography>

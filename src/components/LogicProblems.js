@@ -12,6 +12,7 @@ const LogicProblems = () => {
   const [number, setNumber] = useState("");
 
   const handleChange = e => {
+    // Make sure a number is entered and val updates state
     setNumber(
       e.target.type === "number" ? parseInt(e.target.value) : e.target.value
     );
