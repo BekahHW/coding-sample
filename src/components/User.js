@@ -20,7 +20,9 @@ const User = () => {
       {hasError && <span>Has error: {JSON.stringify(hasError)}</span>}
       {data ? (
         <>
-          <div>User</div>
+          <Typography variant="h1" component="h2">
+            Front End Dev
+          </Typography>{" "}
           {data.map(user => (
             <Grid
               container
