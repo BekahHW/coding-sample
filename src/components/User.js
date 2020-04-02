@@ -1,14 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
-
-// name
-// location
-// email
-// age
+import Divider from "@material-ui/core/Divider";
 
 const User = () => {
   const [data, setData] = useState([]);
@@ -24,41 +19,53 @@ const User = () => {
     <div>
       {hasError && <span>Has error: {JSON.stringify(hasError)}</span>}
       {data ? (
-        // On revision, makes sure all cards are uniform size
         <>
           <div>User</div>
           {data.map(user => (
-            <Grid container justify="center" item xs={12} sm={6} lg={4} xl={3}>
-              <Card>
-                <CardMedia
+            <Grid container alignItems="center" xs={12} sm={6} lg={4} xl={3}>
+              <Card
+                style={{
+                  justifyContent: "center",
+                  margin: "auto",
+                  boxShadow: "0 8px 40px -12px rgba(0,0,0,0.3)"
+                }}
+              >
+                <img
                   style={{
                     width: 200,
                     height: 200,
-                    // borderRadius: 200 / 2,
                     borderRadius: "50%",
-                    align: "center"
-                    // margin: 20
+
+                    margin: 20
                   }}
-                  image={user.picture.thumbnail}
+                  src={user.picture.large}
                 />
+                <Divider medium />
+
                 <CardContent>
                   <Typography variant="h4" component="h4">
                     {console.log(user)}
-                    Name: {user.name.first}
-                    {user.name.last}
+                    {`${user.name.first} 
+                    ${user.name.last}`}
                   </Typography>
-                  <Typography variant="h5" component="h5">
-                    Location: {user.location.city}, {user.location.state}
+                  <Typography component="h5" variant="h5">
+                    {user.email}
                   </Typography>
 
-                  <Typography component="p">Age:{user.dob.age}</Typography>
-                  <Typography component="p">{user.language}</Typography>
+                  <Typography variant="p" component="p">
+                    {user.dob.age} y.o. • {user.location.city},{" "}
+                    {user.location.state}
+                  </Typography>
                 </CardContent>
               </Card>
             </Grid>
           ))}
         </>
-      ) : null}
+      ) : (
+        <Typography component="h5" variant="h5">
+          "There are no users to display"
+        </Typography>
+      )}
     </div>
   );
 };
